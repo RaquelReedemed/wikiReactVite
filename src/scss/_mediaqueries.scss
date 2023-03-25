@@ -1,0 +1,17 @@
+/* 
+
+                                CAROUSEL
+
+*/
+
+@media (min-width: 1059px) {
+    .slider-container{
+        display: none;
+    }
+}
+
+@media (max-width: 1059px) {
+    .contenedor-NoCarousel{
+        display: none;
+    }
+}

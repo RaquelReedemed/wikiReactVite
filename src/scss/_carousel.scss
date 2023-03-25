@@ -1,0 +1,73 @@
+.contenedor-carousel {
+  // background-color: black;
+  margin: 20px;
+}
+
+.slider-container {
+  overflow-x: hidden;
+  //  margin: 0 auto;
+}
+
+.cont-item {
+  /*  background-color: rgb(193, 192, 192);
+      
+      width: 100px;
+      height: 70px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+     
+      pointer-events: none; */
+  height: 70px;
+  min-width: 132px;
+  overflow-x: hidden;
+  background-color: #c1c0c0;
+  margin: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cont-item p {
+  text-align: center;
+  pointer-events: none;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+  cursor: grab; //para que salga la manita
+}
+
+/* 
+     NO CAROUSEL
+   
+  */
+
+.contenedor-NoCarousel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  gap: 34px 0px; 
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    ". . .";
+    justify-items: center;
+}
+
+.contenedor-NoCarousel .item{
+    border-style: groove;
+    width: 26rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: 500;
+    background-color: #c1c0c0
+}
+
+.contenedor-NoCarousel p {
+  font-size: 30px;
+}

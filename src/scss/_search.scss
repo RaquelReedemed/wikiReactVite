@@ -1,0 +1,38 @@
+
+
+.centrar{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.entrada_cont{
+    display: flex;
+    border-radius: 15px;
+    
+}
+
+.entrada_cont button {
+    border: none;
+    cursor: pointer;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: #bebebe;
+}
+
+.entrada_cont i {
+    font-size: 25px;
+    color: #494848;
+}
+
+.entrada_cont input{
+    width: 38rem;
+    height: 5rem;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-style: none;
+    background-color: #bebebe;
+    outline: 0; //elimina la linea cuando hace foco 
+}
+
