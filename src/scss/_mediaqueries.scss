@@ -4,6 +4,7 @@
 
 */
 
+
 @media (min-width: 1059px) {
     .slider-container{
         display: none;
@@ -20,3 +21,60 @@
                           ARTICULOS
 */
 
+
+@media (min-width:600px){
+   .imagenArticulo div{
+      width: 500px !important;
+   }
+}
+
+@media (min-width:800px){
+    .cuerpo2 .row  .imagenArticulo{
+        flex: 1 1 16rem;
+   } 
+   
+   .cuerpo2 .row  .detalle1{
+       flex: 1 1 23rem;
+   } 
+
+   .imagenArticulo div{
+    width: 330px !important;
+   }
+
+   .imagenArticulo{
+    display: flex;
+    align-items: center;
+   }
+
+   .detalle1 {
+    padding-top: 0px  !important;
+   }
+
+   .cuerpo2{
+    margin-left: 5rem;
+    margin-right: 5rem;
+   }
+
+   .cuerpo1 .detalleArticulo p{
+    margin-left: 5rem;
+    margin-right: 5rem;
+   }
+}
+
+@media (min-width: 1000px) {
+    .imagenArticulo div{
+        width: 400px !important;
+       }
+
+       .cuerpo2 .row  .detalle1{
+        flex: 1 1 11rem;
+    }   
+}
+
+ /*  .cuerpo1 .row  .tituloArticulo{
+        flex: 1 1 29rem;
+   } 
+   
+   .cuerpo1 .row  .detalleArticulo{
+       flex: 1 1 29rem;
+   } */

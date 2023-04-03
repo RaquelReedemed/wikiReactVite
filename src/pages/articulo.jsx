@@ -4,10 +4,7 @@ function Articulo() {
   return (
     <div>
       <section className="cuerpo1">
-        {" "}
-        {/* about */}
         <div className="row">
-
           <div className="iconos">
             <i class="fa-sharp fa-solid fa-arrow-left"></i>
             <div>
@@ -15,11 +12,11 @@ function Articulo() {
             </div>
           </div>
 
-          <div className="tituloArticulo"> 
+          <div className="tituloArticulo">
             <h2>CSS y buenas practicas en desarrollo web</h2>
           </div>
 
-          <div className="detalleArticulo"> 
+          <div className="detalleArticulo">
             <p>
               CSS (Cascading Style Sheets) es una herramienta fundamental en el
               desarrollo de sitios web modernos. Permite separar la estructura y
@@ -32,12 +29,33 @@ function Articulo() {
               web.
             </p>
           </div>
-
         </div>
-
       </section>
 
-      <section className="cuerpo2"></section>
+      <section className="cuerpo2">
+        <div className="row">
+          <div className="imagenArticulo">
+            <div>
+              <img src="https://res.cloudinary.com/da5fzpyjp/image/upload/v1676654065/flores/pexels-photo-8350708_zn8pep.jpg" >
+                
+              </img>
+            </div>
+          </div>
+
+          <div className="detalle1">
+            <h4>Organización y estructura</h4>
+            <p>
+              Una buena práctica para empezar es
+              mantener una estructura organizada en su código CSS. Esto puede
+              incluir dividir su código en secciones lógicas, agregar
+              comentarios y utilizar una convención de nomenclatura fácil de
+              entender. Al organizar su código, no solo será mucho más fácil de
+              leer y mantener, sino que también ayudará a otros desarrolladores
+              a entender su trabajo.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="cuerpo3"></section>
 

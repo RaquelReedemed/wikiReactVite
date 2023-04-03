@@ -4,7 +4,7 @@
 */
 
 * {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
 }
 
  html{
@@ -17,13 +17,13 @@
     flex-wrap: wrap;
 }
 
-.cuerpo1 .row  .tituloArticulo{
+/* .cuerpo1 .row  .tituloArticulo{
      flex: 1 1 29rem;
 } 
 
 .cuerpo1 .row  .detalleArticulo{
     flex: 1 1 29rem;
-}
+} */
 
 
 .tituloArticulo {
@@ -45,6 +45,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 20px; 
+    align-items: center;
 }
 
 .iconos img{
@@ -66,8 +67,49 @@
     padding-top: 20px; 
 } 
 
-.detalleArticulo p {
+/* .detalleArticulo p {
     padding-left: 20px;
     padding-right: 20px; 
+} */
+
+/* 
+                      CUERPO 2
+*/
+
+.cuerpo2{
+    margin-top: 30px;
 }
+
+ .imagenArticulo{
+    display: flex;
+    justify-content: space-evenly;
+} 
+
+.imagenArticulo div{
+ width: 300px;
+}
+
+.imagenArticulo img{
+    width: 100%;
+}
+
+.detalle1{
+    padding-top: 30px;
+}
+
+.detalle1 h4{
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px; 
+    font-size: 20px;
+    text-align: justify;
+}
+
+.detalle1 p{
+    padding-left: 20px;
+    padding-right: 20px; 
+    text-align: justify;
+}
+
+
 

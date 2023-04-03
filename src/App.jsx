@@ -5,6 +5,7 @@ import Carouseleq from './components/carouseleq'
 import Navbareq from './components/navbareq'
 import Search from './components/search'
 import Articulo from './pages/articulo'
+import { Navbar } from 'react-bootstrap'
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
       {/* <Navbareq></Navbareq>
        <Search></Search> 
        <Carouseleq></Carouseleq>  */}
+       {/* <Navbar></Navbar> */}
        <Articulo></Articulo>
     </div>
   )
