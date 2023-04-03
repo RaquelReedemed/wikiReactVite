@@ -1,0 +1,73 @@
+
+/* 
+                      CUERPO 1
+*/
+
+* {
+    font-size: 1.6rem;
+}
+
+ html{
+    overflow-x: hidden;
+}  
+
+.cuerpo1 .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cuerpo1 .row  .tituloArticulo{
+     flex: 1 1 29rem;
+} 
+
+.cuerpo1 .row  .detalleArticulo{
+    flex: 1 1 29rem;
+}
+
+
+.tituloArticulo {
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    background: #AAA9A9;
+}
+
+
+.tituloArticulo h2{
+    color: #FAFAFA;
+    font-size: 2rem;
+}
+
+.iconos{
+    background: #AAA9A9;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px; 
+}
+
+.iconos img{
+    width: 30px;
+}
+
+.iconos div{
+    width: 30px;
+    padding-right: 42px;  
+}
+
+.iconos i{
+    color: #FAFAFA;
+    width: 20px;
+    padding-left: 20px;
+}
+
+ .detalleArticulo{
+    padding-top: 20px; 
+} 
+
+.detalleArticulo p {
+    padding-left: 20px;
+    padding-right: 20px; 
+}
+

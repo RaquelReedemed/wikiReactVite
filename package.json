@@ -31,5 +31,13 @@
   "main": "vite.config.js",
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaquelReedemed/wikiReactVite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RaquelReedemed/wikiReactVite/issues"
+  },
+  "homepage": "https://github.com/RaquelReedemed/wikiReactVite#readme",
   "description": ""
 }

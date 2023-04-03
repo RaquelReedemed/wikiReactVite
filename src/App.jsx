@@ -4,14 +4,16 @@ import './App.css'
 import Carouseleq from './components/carouseleq'
 import Navbareq from './components/navbareq'
 import Search from './components/search'
+import Articulo from './pages/articulo'
 
 function App() {
   
   return (
     <div>
-      <Navbareq></Navbareq>
+      {/* <Navbareq></Navbareq>
        <Search></Search> 
-       <Carouseleq></Carouseleq> 
+       <Carouseleq></Carouseleq>  */}
+       <Articulo></Articulo>
     </div>
   )
 }
