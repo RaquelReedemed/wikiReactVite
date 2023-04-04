@@ -36,28 +36,58 @@ function Articulo() {
         <div className="row">
           <div className="imagenArticulo">
             <div>
-              <img src="https://res.cloudinary.com/da5fzpyjp/image/upload/v1676654065/flores/pexels-photo-8350708_zn8pep.jpg" >
-                
-              </img>
+              <img src="https://res.cloudinary.com/da5fzpyjp/image/upload/v1676654065/flores/pexels-photo-8350708_zn8pep.jpg"></img>
             </div>
           </div>
 
           <div className="detalle1">
             <h4>Organización y estructura</h4>
             <p>
-              Una buena práctica para empezar es
-              mantener una estructura organizada en su código CSS. Esto puede
-              incluir dividir su código en secciones lógicas, agregar
-              comentarios y utilizar una convención de nomenclatura fácil de
-              entender. Al organizar su código, no solo será mucho más fácil de
-              leer y mantener, sino que también ayudará a otros desarrolladores
-              a entender su trabajo.
+              Una buena práctica para empezar es mantener una estructura
+              organizada en su código CSS. Esto puede incluir dividir su código
+              en secciones lógicas, agregar comentarios y utilizar una
+              convención de nomenclatura fácil de entender. Al organizar su
+              código, no solo será mucho más fácil de leer y mantener, sino que
+              también ayudará a otros desarrolladores a entender su trabajo.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="cuerpo3"></section>
+      <section className="cuerpo3">
+        <div className="row">
+          <div className="imagenCuerpo3">
+            <div>
+              <img src="https://res.cloudinary.com/da5fzpyjp/image/upload/v1676654065/flores/pexels-photo-8350708_zn8pep.jpg"></img>
+            </div>
+          </div>
+
+          <div className="detalleCuerpo3">
+            <h4>Mantenga su CSS optimizado</h4>
+            <p className="parrafoMobile">
+              Si bien CSS es muy flexible, también puede ser muy pesado si no se
+              usa adecuadamente. Para evitar esto, asegúrese de optimizar su
+              código.
+            </p>
+
+            <p className="parrafoDesktop">
+              Si bien CSS es muy flexible, también
+              puede ser muy pesado si no se usa adecuadamente. Para evitar esto,
+              asegúrese de optimizar su código. Esto puede incluir la
+              eliminación de estilos no utilizados, la combinación de archivos
+              CSS en uno solo y la reducción de las clases y los identificadores
+              de CSS tanto como sea posible. La optimización de su código es
+              esencial para reducir el tiempo de carga de su sitio y mejorar su
+              experiencia de usuario.
+            </p>
+          </div>
+        </div>
+
+        <p className="parrafoMobile2">
+            Esto puede incluir la eliminación de estilos no utilizados, la combinación de archivos CSS en uno solo y la reducción de las clases y los identificadores de CSS tanto como sea posible. La optimización de su código es esencial para reducir el tiempo de carga de su sitio y mejorar su experiencia de usuario.
+            </p>
+            
+      </section>
 
       <section className="cuerpo4"></section>
 
