@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
-//import { CircularProgress } from "@mui/material";
-//import Box from "@mui/material";
+//import ClipLoader from "react-spinners/ClipLoader";
+import CircularProgress from '@mui/material/CircularProgress';
+//import LinearProgress from '@mui/material/LinearProgress';
+import Box from '@mui/material/Box';
 
 function Articulo() {
   
@@ -11,24 +12,18 @@ function Articulo() {
     setLoading(true)
     setTimeout( ()=>{
       setLoading(false)
-    },5000)
+    },3000)
   }, []);
 
   return (
     <div>
      {
       loading?
-      <ClipLoader
-        color={'#6b6868'}
-        loading={loading}
-        size={100}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      <Box sx={{ display: 'flex' }}>
+      <CircularProgress color="inherit"/>
+     </Box>
       :
       <div>
-
-
 <section className="cuerpo1">
   <div className="row">
     <div className="iconos">
