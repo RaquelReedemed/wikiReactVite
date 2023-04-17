@@ -20,4 +20,23 @@ function App() {
   )
 }
 
+/* {window.location.pathname === "/" && (
+  <>
+
+  <MediaQuery maxDeviceWidth={768}>
+  <BarraDeBusqueda />
+  <Routes>
+    <Route exact path='/search' element={<Search />} />
+  </Routes>
+</MediaQuery>
+  <Carousel></Carousel>
+  <ArticulosRecientes/>
+  </>
+
+{window.location.pathname === "/articulo" && (
+  <>
+  </>
+)}
+) }   */
+
 export default App
