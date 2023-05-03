@@ -1,0 +1,33 @@
+ <div className="contenedor-carousel">
+      <motion.div className="slider-container">
+        {/*div que contendra las propiedades y funcionalidades de motion*/}
+        <motion.div
+          className="slider"
+          drag="x"
+          dragConstraints={{ right: 0, left: -177 }}
+        >
+          {/* contenedor div para las category */}
+          {category.map((categorias) => {
+            return (
+              <motion.div className="cont-item">
+                <p key={category._id}>{categorias.nameCategory}</p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </motion.div>
+
+      <div className="contenedor-NoCarousel">
+      {category.map((categorias) => {
+            return (
+              <div className="item">
+                <p key={category._id}>{categorias.nameCategory}</p>
+              </div>
+            );
+          })}
+
+      </div>
+   
+
+
+    </div>

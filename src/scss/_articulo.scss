@@ -189,3 +189,275 @@
         padding-bottom: 10px;
         font-size: 18px;
 } 
+
+/* 
+
+                                CAROUSEL
+
+*/
+
+
+@media (min-width: 1059px) {
+    .slider-container{
+        display: none;
+    }
+}
+
+@media (max-width: 1059px) {
+    .contenedor-NoCarousel{
+        display: none;
+    }
+}
+
+/* 
+                          ARTICULOS
+*/
+
+
+@media (min-width:600px){
+   .imagenArticulo div{
+      width: 500px !important;
+   }
+
+   .imagenCuerpo3 div{
+    width: 273px !important;
+}
+}
+
+@media (min-width:800px){
+    .cuerpo2 .row  .imagenArticulo{
+        flex: 1 1 16rem;
+   } 
+   
+   .cuerpo2 .row  .detalle1{
+       flex: 1 1 23rem;
+   } 
+
+   .imagenArticulo div{
+    width: 330px !important;
+   }
+
+   .imagenArticulo{
+    display: flex;
+    align-items: center;
+    align-items: flex-start;
+   }
+
+   .cuerpo1 .detalleArticulo p{
+    margin-left: 5rem;
+    margin-right: 5rem;
+    padding-left: initial !important;
+    padding-right: initial !important;
+   }
+
+
+   .detalle1 {
+    padding-top: 0px  !important;
+   }
+
+   .cuerpo2{
+    margin-left: 5rem;
+    margin-right: 5rem;
+   }
+
+   .imagenCuerpo3 {
+   display: none;
+}
+
+.cuerpo3 .detalleCuerpo3 {
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.cuerpo3  .parrafoMobile2{
+    display: none;
+}
+
+.cuerpo3 .detalleCuerpo3 .parrafoMobile {
+    display: block;
+}
+
+.cuerpo3 .detalleCuerpo3 .parrafoDesktop{
+    display: block !important;
+}
+
+.cuerpo4 .parrafoMobile{
+    display: none;
+}
+
+.cuerpo4 .parrafoMobile4{
+    display: none;
+}
+
+.cuerpo4 .parrafoDesktop{
+    display: block !important;
+}
+
+ .cuerpo4 .detalleCuerpo4 {
+    margin-left: 5rem;
+    
+} 
+
+.cuerpo4 .detalleCuerpo4{
+    padding-left: 0px;
+}
+
+.cuerpo4 .imagenCuerpo4 {
+    margin-right: 5rem;
+}
+
+.cuerpo4 .imagenCuerpo4 div{
+    width: 330px !important;
+   }
+
+.cuerpo5  {
+    margin-left: 5rem;
+    margin-right: 5rem;
+}   
+
+.cuerpo6{
+    margin-left: 5rem;
+    margin-right: 5rem;
+   }
+
+   .cuerpo6 .imagenCuerpo6 div{
+    width: 330px !important;
+   }
+
+   .cuerpo6 .parrafoMobile6{
+    display: none;
+   }
+
+   .cuerpo6 .parrafoMobile{
+    display: none;
+   }
+
+   .cuerpo6 .parrafoDesktop6{
+    display: block !important;
+   }
+
+   .cuerpo7{
+    margin-left: 5rem;
+    margin-right: 5rem;
+   }
+
+
+}
+
+@media (min-width: 1000px) {
+    .imagenArticulo div{
+        width: 400px !important;
+       }
+
+       .imagenArticulo{
+        justify-content: left !important;
+       } 
+
+       .cuerpo2 .row  .detalle1{
+        flex: 1 1 11rem;
+    }   
+    
+    .cuerpo1 .detalleArticulo p {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+
+    .cuerpo2 {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+
+    .cuerpo3 {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+
+    .cuerpo3 .row .detalleCuerpo3{
+        flex: none !important;
+        margin-left: 0px;
+    }
+
+    .cuerpo4 {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+
+    .cuerpo4 .detalleCuerpo4{
+        margin-left: 0;
+    }
+
+    .cuerpo4 .imagenCuerpo4{
+        margin-right: 0;
+    }
+
+    .cuerpo5 {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+
+    .cuerpo6 {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+
+    .cuerpo7 {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+
+
+
+    .temas{
+        display: block;
+        margin-top: 100px;
+      /*   background: #AAA9A9; */
+        margin-left: 10rem;
+        margin-right: 10rem;
+        margin-bottom: 50px;
+    }
+    
+    .temas .TemasRelacionados p, b{
+        margin-bottom: 30px;
+        font-size: 25px;
+    }
+    
+    .box-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 2fr));
+        gap: 1.5rem; 
+    }
+    
+    
+    .box-container .contImagen{
+        width: 100%;
+    }
+    
+    .box-container .contImagen img{
+        width: 100%;
+    }
+    
+    .box-container .contTitulo h6{
+        font-size: 18px;
+    }
+    
+    .box-container .contBoton{
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .box-container .contBoton button{
+        height: 33px;
+        font-size: 15px;
+        
+    }
+
+    
+}
+
+ /*  .cuerpo1 .row  .tituloArticulo{
+        flex: 1 1 29rem;
+   } 
+   
+   .cuerpo1 .row  .detalleArticulo{
+       flex: 1 1 29rem;
+   } */

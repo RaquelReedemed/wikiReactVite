@@ -1,0 +1,75 @@
+
+
+
+.navCrearArticulo{
+    font-size: 15px;
+   display: flex; 
+   flex-direction: column;
+   justify-content: space-between;
+    padding-top: 10px;
+    height: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #AAA9A9;
+    color: #FCFCFC;
+}
+
+.navCrearArticulo ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navCrearArticulo  ul li{
+    list-style: none;
+}
+
+.navCrearArticulo ul .li-crearArticulo{
+    margin-left: 10px;
+}
+
+.navCrearArticulo .contenedorBoton .boton{
+    padding: 6.5px 11px;
+    border: 0;
+    background-color: #7B7B7B;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.navCrearArticulo hr{
+    color:#7B7B7B;
+    width: 100%;
+    border-width: 3px;
+}
+
+.contenedor{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor .card{
+    border-color: #7B7B7B;
+    border: 2px solid #c3c6ce;
+    height: 20vh;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.contenedor .card .contCirculo{
+    width: 60px;
+    height: 60px;
+    border: 6px solid #121212;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cruz{
+    font-size: 3rem; 
+}
+
