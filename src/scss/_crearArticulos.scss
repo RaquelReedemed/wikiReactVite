@@ -1,6 +1,5 @@
 
 
-
 .navCrearArticulo{
     font-size: 15px;
    display: flex; 
@@ -12,6 +11,10 @@
     padding-right: 10px;
     background-color: #AAA9A9;
     color: #FCFCFC;
+}
+
+#cerrar{
+    cursor: pointer;
 }
 
 .navCrearArticulo ul{
@@ -36,6 +39,10 @@
     cursor: pointer;
 }
 
+.navCrearArticulo .titulo{
+    height: 42px;
+}
+
 .navCrearArticulo hr{
     color:#7B7B7B;
     width: 100%;
@@ -46,6 +53,7 @@
     padding-top: 30px;
     display: flex;
     justify-content: center;
+    min-height: 80vh;
 }
 
 .contenedor .card{
@@ -67,9 +75,193 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 #cruz{
     font-size: 3rem; 
 }
 
+
+/* 
+ Menu desplegable
+*/
+
+.dropdown{
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-horizontal{
+    list-style: none;
+    width: 300px;
+    
+}
+
+.menu-horizontal .li-categorias{
+    border-radius: 5px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-horizontal li{
+    display: block;
+    padding: 15px 20px;
+    background-color: #AAA9A9;
+    color: #FCFCFC;
+   
+}
+
+.menu-horizontal li:hover{
+   background-color: #6e6e6e;
+}
+
+.menu-vertical{
+    position: absolute;
+    top: 133px;
+    margin-left: -21px;
+    display: none;   
+    width: 299px;
+    z-index: 100;
+    
+}
+
+.menu-vertical li{
+    cursor: pointer;
+}
+
+.dropdown .contenedorBoton{
+    padding-right: 10px;
+}
+
+.dropdown .contenedorBoton .boton{
+    padding: 6.5px 11px;
+    border: 0;
+    background-color: #AAA9A9;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #FCFCFC;
+}
+
+
+
+.menu-horizontal li:hover .menu-vertical{
+    display: block;
+}
+
+
+
+/*
+
+modal
+
+*/
+
+.boton-modal{
+    padding: 40px;
+    background-color: #7B7B7B;
+}
+
+.boton-modal label{
+    padding: 10px 15px;
+    background-color: #AAA9A9;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.boton-modal label:hover{
+    background-color: #7B7B7B;
+}
+
+/* checkbox */
+#btn-modal{
+    display: none;
+}
+
+.container-modal{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    background-color: rgba(144, 148, 150, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* para que el modal este por encima de los demas elementos */
+}
+
+#btn-modal:checked ~ .container-modal{  /*  ~ selecciona todos los elementos de .container-modal cuando el elemento .btn-modal esta  marcado o tildado :checked */
+    display: flex;
+}
+
+.content-modal{
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    background-color: #E7E6E6;
+    border-radius: 4px;
+}
+
+.contenedorBotones{
+    display: flex;
+}
+
+.content-modal .btn-cerrar{
+    width: 100%;
+    margin-top: 15px;
+   display: flex;
+   justify-content: flex-start;
+   
+}
+
+.container-modal .btn-aceptar{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container-modal label{
+    font-size: 18px;
+    background-color: #7B7B7B;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.container-modal label:hover{
+    background-color: #6e6e6e;
+}
+
+.cerrar-modalPantalla{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* 
+MediaQuerie
+*/
+
+@media screen and (min-width:768px) {
+
+    .navCrearArticulo .liCrear{
+        display:none
+    }
+
+    .navCrearArticulo .contenedorBoton{
+        display: none;
+    } 
+
+  
+
+ 
+}
