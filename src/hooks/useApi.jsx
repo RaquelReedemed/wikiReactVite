@@ -18,7 +18,8 @@ export const useApi = (urlLink) => {
           });
          /*  console.log(result.data.data[0].nameCategory); */
     
-          setData(result.data.data);
+          setData(result.data.categories); 
+           console.log(result)
           setLoading(false)
         };
         obtenerCategory();

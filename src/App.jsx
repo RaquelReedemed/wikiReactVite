@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import './App.css'
-import Carouseleq from './components/carouseleq'
+import Carouseleq from './components/Carouseleq'
 import Navbareq from './components/navbareq'
 import Search from './components/search'
 import Articulo from './pages/articulo'
