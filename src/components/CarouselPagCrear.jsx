@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from "react";
+
 import "../css/style.css";
 import { motion } from "framer-motion";
-import axios from "axios";
 import { useApi } from "../hooks/useApi";
 import LoaderDisenio from "./Loader/LoaderDisenio"
 import Loader from "./Loader/Loader"
 
-const Carouseleq = () => {
+const CarouselPagCrear = () => {
 
   /* llamado de API */
-  const { loading, data: category } = useApi(`https://serviceone.onrender.com/apiWikiIdeasV1d/getCategory`)
+  const { loading, data: category } = useApi(`https://serviceone.onrender.com/api-wiki-ideas/categories`)
   console.log(loading)
   console.log(category)
 
 
- 
   return (
     <div className="contenedor-carousel">
 
@@ -47,24 +45,22 @@ const Carouseleq = () => {
 
             )
           }
-
-      
-
-      <div className="contenedor-NoCarousel">
-      {category.map((categorias) => {
-            return (
-              <div className="item">
-                <p key={category._id}>{categorias.nameCategory}</p>
-              </div>
-            );
-          })}
-
-      </div>
    
-
+{/*  */}
 
     </div>
   );
 };
 
-export default Carouseleq;
+export default CarouselPagCrear;
+
+
+{/* <div className="contenedor-NoCarousel">
+{category.map((categorias) => {
+      return (
+        <div className="item">
+          <p key={category._id}>{categorias.nameCategory}</p>
+        </div>
+      );
+    })}
+</div> */}

@@ -6,18 +6,20 @@ import Navbareq from './components/navbareq'
 import Search from './components/search'
 import Articulo from './pages/articulo'
 import { Navbar } from 'react-bootstrap'
-import CrearArticulo from './components/CrearArticulo'
+/* import CrearArticulo from './components/CrearArticulo' */
+import CrearArticuloNew from './components/CrearArticuloNew'
 
 function App() {
   
   return (
     <div>
       <Navbareq></Navbareq>
-       <Search></Search> 
-       <Carouseleq></Carouseleq> 
+      {/*  <Search></Search>  */}
+       {/*  <Carouseleq></Carouseleq>  */}
        {/* <Navbar></Navbar> */}
       {/*  <Articulo></Articulo> */}
-     {/*  <CrearArticulo></CrearArticulo> */}
+      {/* <CrearArticulo></CrearArticulo>  */}
+      <CrearArticuloNew></CrearArticuloNew>
     </div>
   )
 }

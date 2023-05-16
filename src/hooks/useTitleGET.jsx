@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 
-export const useApi = (urlLink) => {
+export const useTitleGET = (urlLink) => {
 
     const [data, setData] = useState([""]);
     const [loading, setLoading] = useState(true);
@@ -20,8 +20,10 @@ export const useApi = (urlLink) => {
           console.log(result)
          /*  console.log(result.data.data[0].nameCategory); */
     
-          setData(result.data.categories); 
+          setData(result.data.sectionTitles); 
            console.log(result)
+        
+
           setLoading(false)
         };
         obtenerCategory();
