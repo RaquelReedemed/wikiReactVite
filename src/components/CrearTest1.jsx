@@ -1,23 +1,22 @@
 import { React, useState, useEffect }  from 'react';
 import { useApi } from '../hooks/useApi';
-/* import { useSections } from '../hooks/useSections'; 
- */
 import { useTitlePost } from '../hooks/useTitlePost';
 import { useTitleGET } from '../hooks/useTitleGET';
+import axios from 'axios';
 
 
 const CrearArticuloNew = () => {
 
   /* obtener id de categorias */
   const { data: category } = useApi(`https://serviceone.onrender.com/api-wiki-ideas/categories`)
-  console.log(category + 'CATEGORY')
+  console.log('CATEGORY', category)
   const [idCategory, setIdCategory] = useState(null);
-  console.log(idCategory)
+  console.log('id categoria', idCategory)
 
    /* crear titulo */
   const { postRequest } = useTitlePost();
   const [inputValue, setInputValue] = useState('');
-  console.log(inputValue)
+  console.log('input titulo', inputValue)
 
   /* obtener titulos creados */
   const { data: listaTitulos } = useTitleGET(`https://serviceone.onrender.com/api-wiki-ideas/section-titles`)
@@ -25,34 +24,75 @@ const CrearArticuloNew = () => {
   console.log(idCategory)
 
   /* obtener ultimo titulo creado y id de titulo */
-  const [latestTitle, setLatestTitle] = useState(null);
+   const [latestTitle, setLatestTitle] = useState(null);
   console.log(latestTitle)
   const [idTitle, setIdTitle] = useState(null);
-  console.log(idTitle)
+  console.log(idTitle) 
 
   
 
   const handlePost = async () => {
-    try{
+
+  /* envio de titulo tipeado en el input a la URL */    
       const url = "https://serviceone.onrender.com/api-wiki-ideas/section-titles"
       const data = {
         sectionTitle: inputValue
       };
-      const response = await postRequest(url, data);
-      console.log(response)
-      setLatestTitle(data.sectionTitle)
-      setIdTitle(response.data._id)
+/* try,atrapar errores y await para esperar la respuesta de que el titulo se agrego a la url */
+      try{
+       await postRequest(url, data);
+       setLatestTitle(data.sectionTitle)
+      /* setIdTitle(response.data._id) */
+
+/*obtener listado de titulos actualizada con un .get */
+       const response = await axios.get(url)
+       const titlesWidthIds = response.data.sectionTitles
+       console.log('id de titulos', titlesWidthIds)
+
+/*comprueba si existen elementos en la url, luego se accede al ultimo (-1) y se guarda en lastTitle */
+/*Tomar en cuenta que se obtiene el ULTIMO input agregado en el MOMENTO */      
+       if(titlesWidthIds.length > 0) {
+        const lastTitle = titlesWidthIds[titlesWidthIds.length - 1];
+        const lastId = lastTitle._id;
+        setIdTitle(lastId)
+       }
 
     }catch(error) {
-      console.log(error)
+      console.log('error:', error)
+      //manejar el error de manera adecuada
     } 
   };
+
+  useEffect(() => {
+    
+    const handleGetTitles = async() => {
+      const url = 'https://serviceone.onrender.com/api-wiki-ideas/section-titles';
+
+      try{
+        const response = await axios.get(url);
+        console.log('Titles', response.data);
+
+        //verificar si response.data es un array
+      const titlesWidthIds = response.data.sectionTitles;
+
+/* Una vez guardado en lasTitle el ultimo elemento ingresado en el input se extrae el ultimo */
+       const lastTitle = titlesWidthIds.pop(); ///extraer el ultimo titulo del array
+       const lastId = lastTitle._id  //obtener el _id del ultimo titulo
+      console.log('Last ID:', lastId);
+      setIdTitle(lastId)
+      } 
+      catch (error) {
+        console.log('Error:', error);  
+       } 
+    };
+    handleGetTitles();
+
+  }, []);
+
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
-
-
 
 
   const handleIdCategory = (categoryId) => {
@@ -60,7 +100,6 @@ const CrearArticuloNew = () => {
      setIdCategory(categoryId)
      console.log(categoryId)
   }
-
 
 
 
@@ -100,63 +139,3 @@ const CrearArticuloNew = () => {
 }
 
 export default CrearArticuloNew;
-
-
- /*  const { postTitle, data:titles } = useTitlePost(`https://serviceone.onrender.com/api-wiki-ideas/section-titles`)
-  const [title, setTitle] = useState("");
-  console.log(title) */
-  
-
-  /* const handleAgregarTitulo = (e) => {
-    console.log(e.target.value)
-    setTitle(e.target.value)
-  } 
-
-  const handleSubmit = () => {
-    postTitle(title)
-  } */
-
-
-
-  /*  const { data: sections } = useSections(`https://serviceone.onrender.com/api-wiki-ideas/sections/641bc0de5afd03c02701d4ef`)
-     console.log(sections)  */
-
-
-
-/* import DropDown from '../components/DropDown';
-import TextArea from '../components/TextArea';
-import NuevoTextArea from '../components/NuevoTextArea';
-import CarouselPagCrear from './CarouselPagCrear';
- */
-
-
-{/* <div className='imgCont'>
-        <div className='buttonsContainer'>
-          <i className="bi bi-x-lg "></i>
-          <button className='butons fw-bold'>Crear articulo</button>
-          <button className='butonsWithBg'>Publicar</button>
-        </div>
-          <textarea 
-          defaultValue={"Titulo del artículo"} 
-          className='imgText'
-        /> 
-      </div>
-
-      <div className='carouselCont'>
-        <h2 className='textCategoria'>Categorías</h2>
-       
-         
-         <CarouselPagCrear></CarouselPagCrear>
-        
-        <carousel></carousel>
-      </div>
-
-      <div className='dropMenu'>
-        <DropDown/>
-        <button className='butonsWithBg'>
-          Subir imagen
-        </button>
-      </div>
-
-      <TextArea/>
-      <NuevoTextArea/> */}

@@ -12,7 +12,7 @@ export const useTitleGET = (urlLink) => {
         setLoading(true)
 
         //llamado asincronico de la API
-        const obtenerCategory = async () => {
+        const obtenerTitle = async () => {
           const url = urlLink
           const result = await axios.get(url).catch((error) => {
             console.log(error);
@@ -26,7 +26,7 @@ export const useTitleGET = (urlLink) => {
 
           setLoading(false)
         };
-        obtenerCategory();
+        obtenerTitle();
       }, []);
 
     /*   console.log(category, "category"); */

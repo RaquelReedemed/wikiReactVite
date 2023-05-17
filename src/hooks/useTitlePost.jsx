@@ -1,20 +1,24 @@
-import { useEffect, useState } from "react";
+
 import axios from "axios";
+
+/* 
+   Manejador de error
+*/
 
  export const useTitlePost = () => {
 
     const postRequest = async  (url, data) => {
         try{
             const response = await axios.post(url, data);
+            console.log('response', response)
+            console.log('ver data', response.data)
             return response.data;
         } catch (error) {
-            console.log("error")
-            throw error
+            console.log("error al realizar la solicitud:", error);
+            throw error; //O manejar el error de manera adecuada
         }
-
     }
     
-
 return({
     postRequest
 })

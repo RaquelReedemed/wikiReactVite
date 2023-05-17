@@ -1,111 +1,126 @@
 import { React, useState, useEffect }  from 'react';
 import { useApi } from '../hooks/useApi';
-/* import { useSections } from '../hooks/useSections'; 
- */
 import { useTitlePost } from '../hooks/useTitlePost';
 import { useTitleGET } from '../hooks/useTitleGET';
+import axios from 'axios';
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 
 const CrearArticuloNew = () => {
 
-  /* obtener id de categorias */
-  const { data: category } = useApi(`https://serviceone.onrender.com/api-wiki-ideas/categories`)
-  console.log(category + 'CATEGORY')
-  const [idCategory, setIdCategory] = useState(null);
-  console.log(idCategory)
-
-   /* crear titulo */
-  const { postRequest } = useTitlePost();
-  const [inputValue, setInputValue] = useState('');
-  console.log(inputValue)
-
-  /* obtener titulos creados */
-  const { data: listaTitulos } = useTitleGET(`https://serviceone.onrender.com/api-wiki-ideas/section-titles`)
-  console.log(listaTitulos)
-  console.log(idCategory)
-
-  /* obtener ultimo titulo creado y id de titulo */
-  const [latestTitle, setLatestTitle] = useState(null);
-  console.log(latestTitle)
-  const [idTitle, setIdTitle] = useState(null);
-  console.log(idTitle)
-
+  
+  const { data: listadoTitulos } = useTitleGET(`https://serviceone.onrender.com/api-wiki-ideas/section-titles`)
   
 
-  const handlePost = async () => {
-    try{
-      const url = "https://serviceone.onrender.com/api-wiki-ideas/section-titles"
-      const data = {
-        sectionTitle: inputValue
-      };
-      const response = await postRequest(url, data);
-      console.log(response)
-      setLatestTitle(data.sectionTitle)
-      setIdTitle(response.data._id)
-
-      
-
-    }catch(error) {
-      console.log(error)
+  /* obtener id del titulo seleccionado */
+  const [idTitle, setIdTitle] = useState(null);
+  const [titulo, setTitulo] = useState(null);
+  console.log('titulo seccion:',titulo)
+  console.log('id de titulo', idTitle)
+  
+  const handleSelect = (e) => {
+    const selectedIndex = e.target.selectedIndex; // Obtener el índice de la opción seleccionada
+    const nextIndex = selectedIndex + 1; // Índice de la siguiente opción
+    if (nextIndex < listadoTitulos.length) {
+      const nextId = listadoTitulos[nextIndex]._id; // Obtener el _id del siguiente objeto
+      setIdTitle(nextId); // Asignar el _id a idTitle
+      console.log('id del siguiente objeto:', nextId);
+    } else {
+      setIdTitle(null); // Si no hay siguiente objeto, asignar null a idTitle
+      console.log('No hay siguiente objeto');
     }
 
-    
+    const selectTitle = e.target.value;
+    setTitulo(selectTitle)
+
+    setShowTextArea(true)
+    console.log(idTitle)
+    setSectionContent(''); //resetea el contenido de texarea
   };
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  /* Mostrando texArea */
+  const [showTextArea, setShowTextArea] = useState(false);
+  console.log("textArea", showTextArea)
+  const [sectionContent, setSectionContent] = useState(''); //reset de textArea ante nuevo titulo select
+  console.log('contenido', sectionContent) 
+  console.log(sectionContent) 
 
-
-
-
-  const handleIdCategory = (categoryId) => {
-    /*  console.log(e.target.__reactFiber$n452bsfwr1.index) */
-     setIdCategory(categoryId)
-     console.log(categoryId)
+  const handleContenido = (e) => {
+    setSectionContent(e.target.value)
   }
 
+  /* POST de id y texArea */
 
+  const { postRequest } = useTitlePost()
+  console.log('seccion guardada', postRequest)
 
+  // Funcion para guardar contenido POST
 
+  const handleSaveSection = async () => {
+    //se crear cuerpo del URL
+    if (idTitle && sectionContent) {
+      const postData = {
+        sectionTitleId: idTitle,
+        sectionDetail: sectionContent
+      };
+
+      try{
+       const response= await postRequest('https://serviceone.onrender.com/api-wiki-ideas/sections/', postData)
+       console.log('seccion guardara:', response)
+       console.log('id de seccion creada', response.idCreatedSection) 
+
+       /*obtener listado de titulos actualizada con un .get */
+       
+       const lastId = response.idCreatedSection;
+       const getUrl = `https://serviceone.onrender.com/api-wiki-ideas/sections/${lastId}`
+       const getResponse = await axios.get(getUrl);
+       console.log('Array de Seccion creada', getResponse)
+       console.log('SECCION NUEVA', getResponse.data)
+
+        //capturar error despues de guardar en el body (si aplica)
+      }catch (error) {
+        console.error('Error al guardar la seccion:', error)
+      }
+    }else {
+      console.log('No se puede guardad la seccion sin titulo y contenido');
+    }
+  };
+
+ 
     return (
         <div className='container CrearArticulo'>
 
-         {/* llamando a todas las categorias */}
-        <ul>
-        {
-          category.map((categorias) => {
-            return(
-              <li onClick={() => handleIdCategory(categorias._id)} key={categorias._id}>{categorias.nameCategory}</li>
-            )
-          })
-        }
-        </ul>
-
-        <p>Id de la categoria {idCategory}</p>
-
-       {/*  <input onChange={handleAgregarTitulo} type='text' value={title}/>
-        <button onClick={handleSubmit}>guardar titulo</button>
-{/*  */}
-
-
-   {/* crear titulo */} 
-  <div>
-     <input type="text" value={inputValue} onChange={handleInputChange} />
-      <button onClick={handlePost}>Make POST Request</button>
-    </div>
-        
-    {/* ver titulo */} 
-       <p>titulo creado</p>
+        {/* Seleccion de Seccion y almacecado de id seccion */}
   
-    {latestTitle && <p>{latestTitle}</p>}
+     <h3>Seleccionar seccion</h3>
 
-    <p>id titulo</p>
-    {idTitle && <p> id titulo {idTitle}</p>}
+     <select onChange={handleSelect}>
+     {
+      listadoTitulos.map((listado) => (
+        <option key={listado._id} value={listado.sectionTitle}>{listado.sectionTitle}</option>
+      ))
+     }
+     </select>
 
-     
+     <p>Seccion seleccionada:<b>{titulo}</b></p>
+     <p>Id del titulo selccionado:<b>{idTitle}</b></p>
 
-    
+     {/* TexArea */}
+
+     <div>
+        <textarea 
+          value={sectionContent}
+          onChange={handleContenido}>
+        </textarea>
+     </div>
+
+     {
+      showTextArea && (
+        <button onClick={handleSaveSection}>Guadar Seccion</button>
+      )
+     }
+
+        
 </div>
     );
 }
