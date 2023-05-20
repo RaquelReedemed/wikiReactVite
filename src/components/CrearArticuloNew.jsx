@@ -8,6 +8,19 @@ import { text } from '@fortawesome/fontawesome-svg-core';
 
 const CrearArticuloNew = () => {
 
+    /* obtener id de categorias */
+    const { data: category } = useApi(`https://serviceone.onrender.com/api-wiki-ideas/categories`)
+    console.log('CATEGORY', category)
+    const [idCategory, setIdCategory] = useState(null);
+    console.log('id categoria', idCategory)
+
+    const handleIdCategory = (categoryId) => {
+      /*  console.log(e.target.__reactFiber$n452bsfwr1.index) */
+       setIdCategory(categoryId)
+       console.log(categoryId)
+    }
+  
+
   
   const { data: listadoTitulos } = useTitleGET(`https://serviceone.onrender.com/api-wiki-ideas/section-titles`)
   
@@ -86,9 +99,22 @@ const CrearArticuloNew = () => {
     }
   };
 
- 
     return (
         <div className='container CrearArticulo'>
+
+         {/* llamando a todas las categorias */}
+        <h2>Seleccione Categoria</h2>
+         <ul>
+        {
+          category.map((categorias) => {
+            return(
+              <li onClick={() => handleIdCategory(categorias._id)} key={categorias._id}>{categorias.nameCategory}</li>
+            )
+          })
+        }
+        </ul>
+
+        <p>Id de la categoria {idCategory}</p>
 
         {/* Seleccion de Seccion y almacecado de id seccion */}
   
