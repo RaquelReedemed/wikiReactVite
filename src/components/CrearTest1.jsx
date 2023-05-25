@@ -21,7 +21,7 @@ const CrearArticuloNew = () => {
   /* obtener titulos creados */
   const { data: listaTitulos } = useTitleGET(`https://serviceone.onrender.com/api-wiki-ideas/section-titles`)
   console.log(listaTitulos)
-  console.log(idCategory)
+
 
   /* obtener ultimo titulo creado y id de titulo */
    const [latestTitle, setLatestTitle] = useState(null);

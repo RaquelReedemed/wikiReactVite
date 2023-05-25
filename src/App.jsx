@@ -8,6 +8,7 @@ import Articulo from './pages/articulo'
 import { Navbar } from 'react-bootstrap'
 /* import CrearArticulo from './components/CrearArticulo' */
 import CrearArticuloNew from './components/CrearArticuloNew'
+import CrearCrear from './components/crearCrear'
 
 function App() {
   
@@ -19,7 +20,8 @@ function App() {
        {/* <Navbar></Navbar> */}
       {/*  <Articulo></Articulo> */}
       {/* <CrearArticulo></CrearArticulo>  */}
-      <CrearArticuloNew></CrearArticuloNew>
+      {/* <CrearArticuloNew></CrearArticuloNew> */}
+      <CrearCrear/>
     </div>
   )
 }

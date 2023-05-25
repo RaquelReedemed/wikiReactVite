@@ -10,11 +10,11 @@ const CrearCrear = () => {
   const { data: listadoTitulos } = useTitleGET('https://serviceone.onrender.com/api-wikideas/section-titles');
   const [idTitle, setIdTitle] = useState(null);
   const [titulo, setTitulo] = useState(null);
-  const [showTextArea, setShowTextArea] = useState(false);
-  const [sectionContent, setSectionContent] = useState('');
+  const [sectionContents, setSectionContents] = useState(['']);
   const [idCreatedSecciones, setIdCreatedSecciones] = useState([]);
-  console.log('idCreatedSecciones', idCreatedSecciones)
+  console.log('idCreatedSecciones', idCreatedSecciones);
   const [seccionBlocks, setSeccionBlocks] = useState([]);
+  const [showSectionForm, setShowSectionForm] = useState(false);
 
   const handleIdCategory = (categoryId) => {
     setIdCategory(categoryId);
@@ -31,21 +31,25 @@ const CrearCrear = () => {
     }
     const selectTitle = e.target.value;
     setTitulo(selectTitle);
-    setShowTextArea(true);
-    setSectionContent('');
   };
 
-  const handleContenido = (e) => {
-    setSectionContent(e.target.value);
+  const handleContenido = (e, index) => {
+    const value = e.target.value;
+    setSectionContents((prevContents) => {
+      const newContents = [...prevContents];
+      newContents[index] = value;
+      return newContents;
+    });
   };
 
   const { postRequest } = useTitlePost();
 
-  const handleSaveSection = async () => {
+  const handleSaveSection = async (index) => {
+    const sectionContent = sectionContents[index];
     if (idTitle && sectionContent) {
       const postData = {
         sectionTitleId: idTitle,
-        sectionDetail: sectionContent
+        sectionDetail: sectionContent,
       };
       try {
         const response = await postRequest('https://serviceone.onrender.com/api-wikideas/sections/', postData);
@@ -63,8 +67,8 @@ const CrearCrear = () => {
   };
 
   const handleAddSection = () => {
-    setShowTextArea(false);
-    setSectionContent('');
+    setShowSectionForm(true);
+    setSectionContents((prevContents) => [...prevContents, '']);
     setIdCreatedSecciones([]);
     setSeccionBlocks((prevBlocks) => [...prevBlocks, { id: prevBlocks.length + 1 }]);
   };
@@ -85,27 +89,27 @@ const CrearCrear = () => {
       </ul>
       <p>Id de la categoria {idCategory}</p>
 
-      {seccionBlocks.map((block) => (
+      {seccionBlocks.map((block, index) => (
         <div key={block.id}>
           <h3>Seleccionar seccion</h3>
-          <select onChange={handleSelect}>
-            {listadoTitulos.map((listado) => (
-              <option key={listado._id} value={listado.sectionTitle}>
-                {listado.sectionTitle}
-              </option>
-            ))}
-          </select>
-          <p>Seccion seleccionada: <b>{titulo}</b></p>
-          <p>Id del titulo seleccionado: <b>{idTitle}</b></p>
-          {showTextArea && (
+          {showSectionForm && (
             <div>
-              <textarea value={sectionContent} onChange={handleContenido}></textarea>
-              <button onClick={handleSaveSection}>Guardar Seccion</button>
+              <select onChange={handleSelect}>
+                {listadoTitulos.map((listado) => (
+                  <option key={listado._id} value={listado.sectionTitle}>
+                    {listado.sectionTitle}
+                  </option>
+                ))}
+              </select>
+              <p>Seccion seleccionada: <b>{titulo}</b></p>
+              <p>Id del titulo seleccionado: <b>{idTitle}</b></p>
+              <textarea value={sectionContents[index]} onChange={(e) => handleContenido(e, index)}></textarea>
+              <button onClick={() => handleSaveSection(index)}>Guardar Seccion</button>
+              {idCreatedSecciones.map((id) => (
+                <p key={id}>Id de seccion creada: {id}</p>
+              ))}
             </div>
           )}
-          {idCreatedSecciones.map((id) => (
-            <p key={id}>Id de seccion creada: {id}</p>
-          ))}
         </div>
       ))}
 
