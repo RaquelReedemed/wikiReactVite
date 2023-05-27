@@ -9,6 +9,7 @@ import { Navbar } from 'react-bootstrap'
 /* import CrearArticulo from './components/CrearArticulo' */
 import CrearArticuloNew from './components/CrearArticuloNew'
 import CrearCrear from './components/crearCrear'
+import CrearCrearTest from './components/CrearCrearTest'
 
 function App() {
   
@@ -21,7 +22,8 @@ function App() {
       {/*  <Articulo></Articulo> */}
       {/* <CrearArticulo></CrearArticulo>  */}
       {/* <CrearArticuloNew></CrearArticuloNew> */}
-      <CrearCrear/>
+     {/*  <CrearCrear/> */}
+     <CrearCrearTest/>
     </div>
   )
 }
