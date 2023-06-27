@@ -10,12 +10,20 @@ import { Navbar } from 'react-bootstrap'
 import CrearArticuloNew from './components/CrearArticuloNew'
 import CrearCrear from './components/crearCrear'
 import CrearCrearTest from './components/CrearCrearTest'
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Categorias from './pages/Categorias'
+import Inicio from './pages/Inicio'
 
 function App() {
   
   return (
-    <div>
+
+    <BrowserRouter>
+    
       <Navbareq></Navbareq>
+
+      <Routes>
+      <Route exact path='/' element={<Inicio />} />
       {/*  <Search></Search>  */}
        {/*  <Carouseleq></Carouseleq>  */}
        {/* <Navbar></Navbar> */}
@@ -24,7 +32,12 @@ function App() {
       {/* <CrearArticuloNew></CrearArticuloNew> */}
      {/*  <CrearCrear/> */}
      <CrearCrearTest/>
-    </div>
+     <Route exact path='/categorias/:nameCategory/:categoryId' element={<Categorias />} />
+
+     </Routes>
+  
+    </BrowserRouter>
+
   )
 }
 
