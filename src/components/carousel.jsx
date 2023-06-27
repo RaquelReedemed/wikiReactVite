@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import "../styles/carousel.css";
+/* import "../styles/carousel.css"; */
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useApiCategory } from "../hooks/useApiCategory";

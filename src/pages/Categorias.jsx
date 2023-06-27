@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
-import '../styles/Categorias.css';
+/* import '../styles/Categorias.css'; */
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Categorias() {
    const { nameCategory, categoryId } = useParams();
@@ -38,15 +39,17 @@ function Categorias() {
       </div> 
 
       {/* Aquí se renderizan las cards horizontales */}
-     <div className='categorias-container__cards'>
+      <div className='categorias-container__cards'>
       {cardCategory.map(card => (
         <div className='categorias-card' key={card.categoryId}>
           <img src={card.imagen} alt={card.Topic} />
-          <h2>Título: {card.topic}</h2>
+          <Link to={`/articulos/${card.detail}`}>
+          Título: {card.topic}
+          </Link>
           <p>Descripción: {card.detail}</p>
         </div>
       ))}
-    </div> 
+    </div>
 
     </>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+
 import './App.css'
 import Carouseleq from './components/Carouseleq'
 import Navbareq from './components/navbareq'
@@ -8,11 +8,13 @@ import Articulo from './pages/articulo'
 import { Navbar } from 'react-bootstrap'
 /* import CrearArticulo from './components/CrearArticulo' */
 import CrearArticuloNew from './components/CrearArticuloNew'
-import CrearCrear from './components/crearCrear'
-import CrearCrearTest from './components/CrearCrearTest'
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import Categorias from './pages/Categorias'
+/* import CrearCrear from './components/crearCrear' */
+/* import CrearCrearTest from './components/CrearCrearTest' */
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Inicio from './pages/Inicio'
+ import Categorias from './pages/Categorias' 
+import ItemListIdArt from './components/ItemListId/ItemListIdArt'
 
 function App() {
   
@@ -31,15 +33,18 @@ function App() {
       {/* <CrearArticulo></CrearArticulo>  */}
       {/* <CrearArticuloNew></CrearArticuloNew> */}
      {/*  <CrearCrear/> */}
-     <CrearCrearTest/>
-     <Route exact path='/categorias/:nameCategory/:categoryId' element={<Categorias />} />
+  {/*    <CrearCrearTest/> */}
+     <Route exact path='/categorias/:nameCategory/:categoryId' element={<Categorias />} /> 
+     <Route exact path='/articulos/:detail' element={<ItemListIdArt/>}/>
 
      </Routes>
-  
+
+     
     </BrowserRouter>
 
   )
 }
+
 
 /* {window.location.pathname === "/" && (
   <>

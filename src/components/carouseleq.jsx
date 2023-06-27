@@ -5,11 +5,12 @@ import axios from "axios";
 import { useApi } from "../hooks/useApi";
 import LoaderDisenio from "./Loader/LoaderDisenio"
 import Loader from "./Loader/Loader"
+import { Link } from "react-router-dom";
 
 const Carouseleq = () => {
 
   /* llamado de API */
-  const { loading, data: category } = useApi(`https://serviceone.onrender.com/apiWikiIdeasV1d/getCategory`)
+  const { loading, data: category } = useApi(`https://serviceone.onrender.com/api-wikideas/categories`)
   console.log(loading)
   console.log(category)
 
@@ -50,15 +51,17 @@ const Carouseleq = () => {
 
       
 
-      <div className="contenedor-NoCarousel">
-      {category.map((categorias) => {
-            return (
-              <div className="item">
-                <p key={category._id}>{categorias.nameCategory}</p>
-              </div>
-            );
-          })}
-
+          <div className="contenedor-NoCarousel">
+        {category.map((categorias) => {
+          return (
+            <div className="item"
+              key={categorias.categoryId}>
+              <Link to={`/categorias/${categorias.nameCategory}/${categorias.categoryId}`}>
+              {categorias.nameCategory}
+              </Link>
+            </div>
+          );
+        })}
       </div>
    
 
