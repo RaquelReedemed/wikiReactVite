@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 /* import ItemListCatego from '../Categorias/ItemListCatego'; */
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import ItemListArticulos from '../Articulos/ItemListArticulos';
 
 
 
@@ -55,6 +56,8 @@ const ItemListIdArt = ( ) => {
         <div>
 
         <h1>ItemListIdArt</h1>
+
+        <ItemListArticulos items={sections} lasSec={sections}/>
             
         </div>
     );
