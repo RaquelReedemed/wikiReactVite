@@ -15,12 +15,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Inicio from './pages/Inicio'
  import Categorias from './pages/Categorias' 
 import ItemListIdArt from './components/ItemListId/ItemListIdArt'
+import { TitleProvider } from './components/context/TitleContext'
 
 function App() {
   
   return (
 
     <BrowserRouter>
+
+    <TitleProvider>
     
       <Navbareq></Navbareq>
 
@@ -38,8 +41,9 @@ function App() {
      <Route exact path='/articulos/:detail' element={<ItemListIdArt/>}/>
 
      </Routes>
-
-     
+  
+   
+     </TitleProvider>
     </BrowserRouter>
 
   )
