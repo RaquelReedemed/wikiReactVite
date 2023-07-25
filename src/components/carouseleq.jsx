@@ -50,7 +50,7 @@ const Carouseleq = () => {
           {category.map((categorias) => {
             return (
               <motion.div 
-              className="cont-item">
+              className="cont-item" key={categorias.categoryId + index}>
               <img
                   src={categoryImages[categorias.categoryId]}
                   alt={categorias.nameCategory}

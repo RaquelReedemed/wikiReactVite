@@ -50,7 +50,7 @@ function Categorias() {
       {/* Aquí se renderizan las cards horizontales */}
       <div className='categorias-container__cards'>
       {cardCategory.map(card => (
-        <div className='categorias-card' key={card.categoryId}>
+        <div className='categorias-card' key={card.indexOf}>
           <img src={card.imagen} alt={card.Topic} />
           <Link to={`/articulos/${card.detail}`} onClick={() => handleTitleClick(card.topic)}>
           Título: {card.topic}
