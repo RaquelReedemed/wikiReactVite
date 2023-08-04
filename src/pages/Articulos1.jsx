@@ -115,43 +115,73 @@ const Articulos1 = () => {
 
   return (
     <div>
-      <div className="tituloArticulo">
+       <div className="tituloArticulo">
         <h2 id="123">{data.topic}</h2>
       </div>
+ 
+      {data.detailData ? (
+  data.detailData.map((detail, index) => (
+    <React.Fragment key={index}>
+      {index % 2 === 0 ? (
+        <section className="cuerpo2">
+          {/* Contenido para índice par */}
+          <div className="row">
+            <div className="imagenArticulo">
+              <div className="contImg">
+                <img src={detail.imagesData.sectionImage} alt={`Imagen ${index}`} />
+              </div>
+            </div>
 
-      {data.detailData.map((detail, index) => (
-    <section className="cuerpo2" key={index}>
-      <div className="row">
-        <div className="imagenArticulo">
-          <div>
-            <img src={detail.imagesData.sectionImage} alt={`Imagen ${index}`} />
+            <div className="detalle1">
+              <h4>{detail.sectionTitleData ? detail.sectionTitleData.sectionTitle : 'N/A'}</h4> 
+              <p>{detail.section ? detail.section.sectionDetail : 'N/A'}</p>
+            </div>
           </div>
-        </div>
+        </section>
+      ) : (
+        <section className="cuerpo4">
+          {/* Contenido para índice impar */}
+          <div className="row">
+            <div className="detalleCuerpo4">
+              <h4>{detail.sectionTitleData ? detail.sectionTitleData.sectionTitle : 'N/A'}</h4> 
+              <p className="parrafoMobile">
+              {
+                detail.section ? detail.section.sectionDetail.split(' ').slice(0, 30).join(' ') : 'N/A'
+              }
+              </p>
+              <p className="parrafoDesktop">
+                {detail.section ? detail.section.sectionDetail : 'N/A'}
+                </p>
+            </div>
 
-        <div className="detalle1">
-          <h4>{detail.sectionTitleData.sectionTitle}</h4>
-          <p>{detail.section.sectionDetail}</p>
-        </div>
-      </div>
-    </section>
-  ))}
-
-
-     {/*  <section className="cuerpo2">
-        <div className="row">
-          <div className="imagenArticulo">
-             {data.detailData.map((detail) => (
-              <img src={detail.imagesData.sectionImage}></img>
-            ))} 
-           
+            <div className="imagenCuerpo4">
+              <div>
+                <img src={detail.imagesData.sectionImage} alt={`Imagen ${index}`} />
+              </div>
+            </div>
           </div>
 
-          <div className="detalle1">
-            <h4>hola </h4>
-            <p>hola</p>
-          </div>
-        </div>
-      </section> */}
+          
+           {
+            detail.section.sectionDetail.split(' ').length > 35 && (
+                <p className="parrafoMobile4">
+                {
+                  detail.section ? detail.section.sectionDetail.split(' ').slice(30).join(' ') : 'N/A'
+                }
+            </p>
+              )
+            } 
+
+          
+
+        </section>
+      )}
+    </React.Fragment>
+  ))
+) : (
+  <p>Cargando...</p>
+)}
+
     </div>
   );
 };
